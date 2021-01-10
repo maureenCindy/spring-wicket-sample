@@ -26,8 +26,7 @@ public class WicketApplication extends WebApplication {
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
 	@Override
-	public Class<? extends WebPage> getHomePage()
-	{
+	public Class<? extends WebPage> getHomePage() {
 		return HomePage.class;
 	}
 
@@ -37,18 +36,14 @@ public class WicketApplication extends WebApplication {
 	@Override
 	public void init() {
 		super.init();
-
 		// needed for the styling used by the quickstart
 		getCspSettings().blocking()
 			.add(CSPDirective.STYLE_SRC, CSPDirectiveSrcValue.SELF)
 			.add(CSPDirective.STYLE_SRC, "https://fonts.googleapis.com/css")
 			.add(CSPDirective.FONT_SRC, "https://fonts.gstatic.com");
-
 		// add your configuration here
 		getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext));
 		//mountPage("/mounted.html", MountedPage.class);
-
-
 
 	}
 }
